@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from smbc import smbc_download
+from openai import openai_download
 
 
 YEAR = 2026
@@ -14,6 +15,8 @@ YM = f"{YEAR}{MONTH:02d}"
 
 BASE_DIR = Path.home() / "Documents" / "請求書領収書" / YM
 BASE_DIR.mkdir(parents=True, exist_ok=True)
+DOWNLOAD_DIR = BASE_DIR / "_download"
+DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def make_driver():
@@ -28,7 +31,9 @@ def make_driver():
 def main():
     driver = make_driver()
 
-    smbc_download(driver, YEAR, MONTH, BASE_DIR)
+    # smbc_download(driver, YEAR, MONTH, BASE_DIR)
+
+    openai_download(driver, YEAR, MONTH, BASE_DIR)
 
     input("確認したら Enter: ")
     driver.quit()
