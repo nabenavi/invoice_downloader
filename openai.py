@@ -64,11 +64,10 @@ def wait_manual_download_and_copy(download_dir, dest_path, message):
 def openai_download(driver, year, month, base_dir, download_dir):
     ym = f"{year}{month:02d}"
 
-    driver.get("https://chatgpt.com/")
-
     input(
-        "手動でOpenAIの請求履歴から対象月のStripe請求書ページを開いてください。"
-        "「請求書をダウンロード」「領収書をダウンロード」が見える状態で Enter: "
+        "普段のChromeでOpenAIのStripe請求書ページを開き、"
+        "そのURLをこのSeleniumのChromeに貼って開いてください。\n"
+        "『請求書をダウンロード』『領収書をダウンロード』が見える状態で Enter: "
     )
 
     invoice_path = base_dir / f"OPENAI{ym}請求書.pdf"
