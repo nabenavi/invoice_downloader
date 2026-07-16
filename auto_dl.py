@@ -51,7 +51,7 @@ def make_driver():
 def main():
     driver = make_driver()
 
-    smbc_download(driver, YEAR, MONTH, BASE_DIR)
+    #smbc_download(driver, YEAR, MONTH, BASE_DIR)
     openai_download(driver, YEAR, MONTH, BASE_DIR, DOWNLOAD_DIR)
     adobe_download(driver, YEAR, MONTH, BASE_DIR, DOWNLOAD_DIR)
     nikkei_download(driver, YEAR, MONTH, BASE_DIR)
